@@ -21,7 +21,7 @@ function MoviePage() {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/movies/${params.id}`)
+    fetch(`${process.env.REACT_APP_API_URL}/movies/${params.id}`)
     .then((response) => {
       if(!response.ok) throw Error(response.statusText);
       return response.json();

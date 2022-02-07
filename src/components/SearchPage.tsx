@@ -31,7 +31,7 @@ function SearchPage() {
   const pageParam = params.get('page');
 
   useEffect(() => {
-    const url = new URL('http://localhost:3000/search');
+    const url = new URL(`${process.env.REACT_APP_API_URL}/search`);
     url.searchParams.append('query', queryParam || '')
     url.searchParams.append('page', pageParam || '1');
 
