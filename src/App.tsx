@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import MoviePage from './components/MoviePage';
 
 function App() {
   return (
@@ -9,7 +8,6 @@ function App() {
         <p>
           Edit src/App.tsx and save to reload.
         </p>
-        <MoviePage />
       </header>
     </div>
   );
