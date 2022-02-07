@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-function MoviePage() {
-  let params = useParams();
+type MovieType = {
+  id: number,
+  title: string,
+  tagline: string,
+  overview: string,
+  poster_path: string,
+  release_date: string,
+  runtime: number,
+  trailer: string,
+}
 
-  return <h1>Helloooo, {params.id}</h1>;
+function MoviePage() {
+  const [data, setData] = useState<MovieType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  const params = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/movies/${params.id}`)
+    .then((response) => {
+      if(!response.ok) throw Error(response.statusText);
+      return response.json();
+    })
+    .then((movieData: MovieType) => {
+      console.log(movieData)
+      setData(movieData);
+      setError(null);
+    })
+    .catch((err) => {
+      console.log(err);
+      setError(err);
+      setData(null);
+    })
+    .finally(() => setLoading(false));
+   }, [params.id]);
+
+  return <p>{JSON.stringify(data)}</p>;
 }
 
 export default MoviePage;
