@@ -11,7 +11,7 @@ type MovieType = {
   trailer: string,
 }
 
-function MoviePage(props: {movie: MovieType}) {
+function MovieData(props: {movie: MovieType}) {
   return <div>
     <h1>{props.movie.title}</h1>
     <h2>{props.movie.tagline}</h2>
@@ -19,4 +19,4 @@ function MoviePage(props: {movie: MovieType}) {
   </div>;
 }
 
-export default MoviePage;
+export default MovieData;
