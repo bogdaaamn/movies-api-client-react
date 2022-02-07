@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import MoviePage from './components/MoviePage';
 
 function App() {
   return (
@@ -8,14 +9,7 @@ function App() {
         <p>
           Edit src/App.tsx and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <MoviePage />
       </header>
     </div>
   );
