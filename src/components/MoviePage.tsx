@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import MovieData from './MovieData';
 
 type MovieType = {
   id: number,
@@ -38,7 +39,11 @@ function MoviePage() {
     .finally(() => setLoading(false));
    }, [params.id]);
 
-  return <p>{JSON.stringify(data)}</p>;
+  return <div>
+    {loading && <p>Loading...</p>}
+    {error && <p>Oops</p>}
+    {data && <MovieData movie={data} />}
+  </div>;
 }
 
 export default MoviePage;
