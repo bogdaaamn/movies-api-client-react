@@ -40,10 +40,12 @@ function MoviePage() {
   }, [params.id]);
 
   return (
-    <div>
-      {loading && <p>Loading...</p>}
-      {error && <p>Oops</p>}
-      {data && <MovieData movie={data} />}
+    <div className="flex justify-center font-light my-3 md:my-16">
+      <div className="w-96">
+        {loading && <p>Loading...</p>}
+        {error && <p>Oops</p>}
+        {data && <MovieData movie={data} />}
+      </div>
     </div>
   );
 }

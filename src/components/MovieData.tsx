@@ -14,9 +14,35 @@ type MovieType = {
 function MovieData(props: { movie: MovieType }) {
   return (
     <div>
-      <h1>{props.movie.title}</h1>
-      <h2>{props.movie.tagline}</h2>
-      <p>{props.movie.overview}</p>
+      <h1 className="uppercase text-4xl font-bold mb-3">{props.movie.title}</h1>
+      <p>{props.movie.tagline}</p>
+
+      {props.movie.overview && (
+        <>
+          <h2 className="uppercase font-bold text-secondary mt-5 mb-2">
+            Storyline
+          </h2>
+          <p>{props.movie.overview}</p>
+        </>
+      )}
+
+      {props.movie.release_date && (
+        <>
+          <h2 className="uppercase font-bold text-secondary mt-5 mb-2">
+            Release date
+          </h2>
+          <p>{props.movie.release_date}</p>
+        </>
+      )}
+
+      {props.movie.runtime && (
+        <>
+          <h2 className="uppercase font-bold text-secondary mt-5 mb-2">
+            Duration
+          </h2>
+          <p>{props.movie.runtime} minutes</p>
+        </>
+      )}
     </div>
   );
 }
