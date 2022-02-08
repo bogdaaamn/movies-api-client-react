@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import './index.css';
-import MoviePage from './components/MoviePage';
-import SearchPage from './components/SearchPage';
+import MoviePage from './movie/MoviePage';
+import SearchPage from './search/SearchPage';
 
 const rootElement = document.getElementById('root');
 
