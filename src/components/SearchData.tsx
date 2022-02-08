@@ -16,7 +16,7 @@ type SearchResultType = {
 function SearchData(props: { searchResult: SearchResultType }) {
   return <ul>
     {props.searchResult.results.map(result => {
-      return <li><a href={`/movie/${result.id}`}>{result.title}</a></li>;
+      return <li key={result.id}><a href={`/movie/${result.id}`}>{result.title}</a></li>;
     })}
   </ul>;
 }

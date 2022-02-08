@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import SearchBar from './SearchBar';
 import SearchData from './SearchData';
 
 type SearchResultType = {
@@ -54,6 +56,7 @@ function SearchPage() {
   }, [pageParam, queryParam]);
 
   return <div>
+    {<SearchBar query={queryParam}/>}
     {loading && <p>Loading...</p>}
     {error && <p>Oops</p>}
     {data && <SearchData searchResult={data} />}
