@@ -19,7 +19,7 @@ function MovieData(props: { movie: MovieType }) {
 
       {props.movie.overview && (
         <>
-          <h2 className="uppercase font-bold text-secondary mt-5 mb-2">
+          <h2 className="uppercase font-bold text-primary mt-5 mb-2">
             Storyline
           </h2>
           <p>{props.movie.overview}</p>
@@ -28,7 +28,7 @@ function MovieData(props: { movie: MovieType }) {
 
       {props.movie.release_date && (
         <>
-          <h2 className="uppercase font-bold text-secondary mt-5 mb-2">
+          <h2 className="uppercase font-bold text-primary mt-5 mb-2">
             Release date
           </h2>
           <p>{props.movie.release_date}</p>
@@ -37,7 +37,7 @@ function MovieData(props: { movie: MovieType }) {
 
       {props.movie.runtime && (
         <>
-          <h2 className="uppercase font-bold text-secondary mt-5 mb-2">
+          <h2 className="uppercase font-bold text-primary mt-5 mb-2">
             Duration
           </h2>
           <p>{props.movie.runtime} minutes</p>
