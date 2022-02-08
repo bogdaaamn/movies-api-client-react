@@ -40,7 +40,7 @@ function MoviePage() {
   }, [params.id]);
 
   return (
-    <div className="flex justify-center font-light my-3 md:my-16">
+    <div className="flex justify-center font-light my-3 mx-3 md:my-16 md:mx-auto">
       <div className="w-96">
         {loading && <p>Loading...</p>}
         {error && <p>Oops</p>}

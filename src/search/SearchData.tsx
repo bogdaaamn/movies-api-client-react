@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchMovieCard from './SearchMovieCard';
 
 type SearchResultType = {
   page: number;
@@ -17,15 +18,17 @@ type SearchResultType = {
 
 function SearchData(props: { searchResult: SearchResultType }) {
   return (
-    <ul>
+    <div className="grid grid-cols-5 gap-5">
       {props.searchResult.results.map((result) => {
         return (
-          <li key={result.id}>
-            <a href={`/movie/${result.id}`}>{result.title}</a>
-          </li>
+          <div key={result.id}>
+            <a href={`/movie/${result.id}`}>
+              <SearchMovieCard />
+            </a>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 }
 

@@ -56,11 +56,13 @@ function SearchPage() {
   }, [pageParam, queryParam]);
 
   return (
-    <div>
-      {<SearchBar query={queryParam} />}
-      {loading && <p>Loading...</p>}
-      {error && <p>Oops</p>}
-      {data && <SearchData searchResult={data} />}
+    <div className="flex justify-center font-light my-3 mx-3 md:my-16 md:mx-20">
+      <div className="w-full">
+        {<SearchBar className="mb-3" query={queryParam} />}
+        {loading && <p>Loading...</p>}
+        {error && <p>Oops</p>}
+        {data && <SearchData searchResult={data} />}
+      </div>
     </div>
   );
 }
