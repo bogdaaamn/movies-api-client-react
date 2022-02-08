@@ -3,15 +3,15 @@ import { useParams } from 'react-router-dom';
 import MovieData from './MovieData';
 
 type MovieType = {
-  id: number,
-  title: string,
-  tagline: string,
-  overview: string,
-  poster_path: string,
-  release_date: string,
-  runtime: number,
-  trailer: string,
-}
+  id: number;
+  title: string;
+  tagline: string;
+  overview: string;
+  poster_path: string;
+  release_date: string;
+  runtime: number;
+  trailer: string;
+};
 
 function MoviePage() {
   const [data, setData] = useState<MovieType | null>(null);
@@ -22,28 +22,30 @@ function MoviePage() {
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/movies/${params.id}`)
-    .then((response) => {
-      if(!response.ok) throw Error(response.statusText);
-      return response.json();
-    })
-    .then((movieData: MovieType) => {
-      console.log(movieData)
-      setData(movieData);
-      setError(null);
-    })
-    .catch((err) => {
-      console.log(err);
-      setError(err);
-      setData(null);
-    })
-    .finally(() => setLoading(false));
-   }, [params.id]);
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then((movieData: MovieType) => {
+        console.log(movieData);
+        setData(movieData);
+        setError(null);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+        setData(null);
+      })
+      .finally(() => setLoading(false));
+  }, [params.id]);
 
-  return <div>
-    {loading && <p>Loading...</p>}
-    {error && <p>Oops</p>}
-    {data && <MovieData movie={data} />}
-  </div>;
+  return (
+    <div>
+      {loading && <p>Loading...</p>}
+      {error && <p>Oops</p>}
+      {data && <MovieData movie={data} />}
+    </div>
+  );
 }
 
 export default MoviePage;

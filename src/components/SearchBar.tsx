@@ -7,20 +7,22 @@ function SearchBar(props: { query: string | null }) {
 
   useEffect(() => {
     navigate(`?query=${searchQuery}`);
-  }, [navigate, searchQuery])
+  }, [navigate, searchQuery]);
 
-  return <div>
-    <input
-      value={searchQuery}
-      onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(e.target.value);
-      }}
-      type="text"
-      id="search-bar"
-      placeholder="Search movies..."
-      name="query"
-    />
-  </div>;
+  return (
+    <div>
+      <input
+        value={searchQuery}
+        onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setSearchQuery(e.target.value);
+        }}
+        type="text"
+        id="search-bar"
+        placeholder="Search movies..."
+        name="query"
+      />
+    </div>
+  );
 }
 
 export default SearchBar;

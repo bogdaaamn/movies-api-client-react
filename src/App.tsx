@@ -5,9 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit src/App.tsx and save to reload.
-        </p>
+        <p>Edit src/App.tsx and save to reload.</p>
       </header>
     </div>
   );
