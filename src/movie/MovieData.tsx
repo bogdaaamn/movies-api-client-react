@@ -1,4 +1,6 @@
 import React from 'react';
+import MoviePosterFrame from './MoviePosterFrame';
+import MovieTrailerFrame from './MovieTrailerFrame';
 
 type MovieType = {
   id: number;
@@ -14,7 +16,13 @@ type MovieType = {
 function MovieData(props: { movie: MovieType }) {
   return (
     <div>
-      <h1 className="uppercase text-4xl font-bold mb-3">{props.movie.title}</h1>
+      {(props.movie.trailer && (
+        <MovieTrailerFrame url={props.movie.trailer} />
+      )) || <MoviePosterFrame posterPath={props.movie.poster_path} />}
+
+      <h1 className="uppercase text-4xl font-bold mb-3 mt-5">
+        {props.movie.title}
+      </h1>
       <p>{props.movie.tagline}</p>
 
       {props.movie.overview && (
