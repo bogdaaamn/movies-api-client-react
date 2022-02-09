@@ -1,15 +1,42 @@
-# Getting Started with Create React App
+# Movie Search App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Search movies and watch their trailer. Bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Written with [TypeScript](https://github.com/microsoft/TypeScript). Based on [Movies API Nestjs](https://github.com/BogDAAAMN/movies-api-nestjs).
 
-## Available Scripts
+## Structure
 
-In the project directory, you can run:
+The project is divided in the following routes:
+
+- `/movie/:id` renders `<MoviePage />`
+    - `<MovieData movie />` renders the title, plot, duration and release date of the movie
+    - `<MovieTrailerFrame url />` renders the YouTube/Vimeo embed for the specified `url`
+- `/search` renders `<SearchPage />`
+    - `<SearchBar query />` renders an `input` that servers as a search bar and navigates to the search results
+    - `<SearchData searchResult />` renders the grid of movie cards based on the `searchResult`
+    - `<SearchMovieCard title posterPath votes date />` renders a card containing the movie information
+    - `<SearchRecco />` renders a static list of five movies that mainly serves as a placeholder for `<SearchData />`
+
+## Development
+
+### Install
+
+```bash
+$ git clone https://github.com/BogDAAAMN/movies-api-client-react
+$ npm install
+```
+
+⚠️ Create and edit an `.env` file, as seen in [`.env.example`](/.env.example).
+
+https://github.com/BogDAAAMN/movies-api-client-react/blob/5007b6c0da6b369caf06768649b210aa24b4a6ed/.env.example#L1
+
+Replace `REACT_APP_API_URL` with the right API URL:
+
+- `http://locahost:3000` if you run [Movies API Nestjs](https://github.com/BogDAAAMN/movies-api-nestjs) locally
+- `https://quiet-depths-21248.herokuapp.com/docs` is currently used and deployed
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
@@ -19,6 +46,8 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+## Build and deploy
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -27,20 +56,14 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Netlify
 
-### `npm run eject`
+The project is currently deployed at https://affectionate-noether-30c383.netlify.app/.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+⚠️ Manually set the `REACT_APP_API_URL` env variable into the Netlify dashboard before running the first build. Read more at [Build environment variables](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/BogDAAAMN/movies-api-client-react)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## API
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This app uses the API built at [BogDAAAMN/movies-api-nestjs](https://github.com/BogDAAAMN/movies-api-nestjs). Full documentation available at https://quiet-depths-21248.herokuapp.com/docs/.
