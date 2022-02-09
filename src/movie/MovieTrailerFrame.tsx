@@ -3,7 +3,7 @@ import React from 'react';
 function YoutubeFrame(props: { ytKey: string }) {
   return (
     <iframe
-      className="w-full aspect-video rounded-[22px]"
+      className="w-full h-screen"
       src={`https://www.youtube-nocookie.com/embed/${props.ytKey}`}
       frameBorder="0"
       allow="encrypted-media; picture-in-picture"
@@ -16,7 +16,7 @@ function YoutubeFrame(props: { ytKey: string }) {
 function VimeoFrame(props: { vimeoKey: string }) {
   return (
     <iframe
-      className="w-full aspect-video rounded-[22px]"
+      className="w-full h-screen"
       src={`https://player.vimeo.com/video/${props.vimeoKey}?byline=false&title=false&portrait=false`}
       frameBorder="0"
       allow="autoplay; fullscreen"

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MovieData from './MovieData';
+import MovieTrailerFrame from './MovieTrailerFrame';
 
 type MovieType = {
   id: number;
@@ -40,12 +41,33 @@ function MoviePage() {
   }, [params.id]);
 
   return (
-    <div className="flex justify-center font-light my-3 mx-3 md:my-16 md:mx-auto">
-      <div className="w-96">
-        {loading && <p>Loading...</p>}
-        {error && <p>Oops</p>}
-        {data && <MovieData movie={data} />}
+    <div>
+      <div className="flex flex-col h-screen font-light p-5 pt-40 md:pl-20">
+        <div className="md:w-[38rem] flex-grow w-full">
+          {loading && <p className="text-xl">Loading...</p>}
+          {error && <p className="text-xl">Oops! There was an error :(</p>}
+          {data && <MovieData movie={data} />}
+        </div>
+        {(data?.trailer && (
+          <div className="flex gap-2">
+            <p className="animate-bounce">▼</p>
+            <p className="text-2xl md:text-xl">
+              Scroll down to watch the trailer
+            </p>
+            <p className="animate-bounce">▼</p>
+          </div>
+        )) ||
+          (data && (
+            <p className="text-2xl md:text-xl">
+              ✕ There is no trailer available ✕
+            </p>
+          ))}
       </div>
+      {data && data.trailer && (
+        <div className="h-screen">
+          <MovieTrailerFrame url={data.trailer} />
+        </div>
+      )}
     </div>
   );
 }
