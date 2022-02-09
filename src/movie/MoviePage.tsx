@@ -42,7 +42,7 @@ function MoviePage() {
 
   return (
     <div>
-      <div className="flex flex-col h-screen font-light p-5 md:pt-40 md:pl-20">
+      <div className="flex flex-col h-screen font-light p-8 pt-12 md:pt-40 md:pl-20">
         <div className="md:w-[38rem] flex-grow w-full">
           {loading && <p className="text-xl">Loading...</p>}
           {error && <p className="text-xl">Oops! There was an error :(</p>}
