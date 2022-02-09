@@ -57,7 +57,7 @@ function SearchPage() {
   }, [pageParam, queryParam]);
 
   return (
-    <div className="flex font-light p-5 md:pt-16 md:pl-20">
+    <div className="flex font-light p-8 pt-12 md:pt-16 md:pl-20">
       <div className="w-[38rem]">
         {<SearchBar className="mb-12" query={queryParam} />}
         {loading && <p className="text-2xl">Loading...</p>}

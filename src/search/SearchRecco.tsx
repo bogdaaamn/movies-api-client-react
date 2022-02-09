@@ -42,7 +42,7 @@ const reccoData = [
 function SearchRecco(props: { className?: string }) {
   return (
     <div className={props.className}>
-      <h1 className="text-4xl uppercase font-bold mb-6">{`Bogdan's Recommendations`}</h1>
+      {/* <h1 className="text-4xl uppercase font-bold mb-6">{`Bogdan's Recommendations`}</h1> */}
       <div className="flex flex-col gap-10">
         {reccoData.map((result) => {
           return (
