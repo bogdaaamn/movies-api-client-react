@@ -1,6 +1,4 @@
 import React from 'react';
-import MoviePosterFrame from './MoviePosterFrame';
-import MovieTrailerFrame from './MovieTrailerFrame';
 
 type MovieType = {
   id: number;
@@ -13,43 +11,63 @@ type MovieType = {
   trailer: string;
 };
 
+function ClockIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1}
+        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1}
+        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+      />
+    </svg>
+  );
+}
+
 function MovieData(props: { movie: MovieType }) {
   return (
     <div>
-      {(props.movie.trailer && (
-        <MovieTrailerFrame url={props.movie.trailer} />
-      )) || <MoviePosterFrame posterPath={props.movie.poster_path} />}
-
-      <h1 className="uppercase text-4xl font-bold mb-3 mt-5">
+      <h1 className="uppercase text-4xl md:text-5xl mb-4 font-bold">
         {props.movie.title}
       </h1>
-      <p>{props.movie.tagline}</p>
+      {/* <p>{props.movie.tagline}</p> */}
 
       {props.movie.overview && (
-        <>
-          <h2 className="uppercase font-bold text-primary mt-5 mb-2">
-            Storyline
-          </h2>
-          <p>{props.movie.overview}</p>
-        </>
+        <p className="text-2xl md:text-xl mb-4">{props.movie.overview}</p>
       )}
 
-      {props.movie.release_date && (
-        <>
-          <h2 className="uppercase font-bold text-primary mt-5 mb-2">
-            Release date
-          </h2>
-          <p>{props.movie.release_date}</p>
-        </>
-      )}
-
-      {props.movie.runtime && (
-        <>
-          <h2 className="uppercase font-bold text-primary mt-5 mb-2">
-            Duration
-          </h2>
-          <p>{props.movie.runtime} minutes</p>
-        </>
+      {props.movie.runtime && props.movie.release_date && (
+        <p className="text-2xl md:text-xl flex items-center gap-1 mb-4">
+          <ClockIcon />
+          <span>{props.movie.runtime} min</span>
+          <CalendarIcon />
+          <span>{props.movie.release_date}</span>
+        </p>
       )}
     </div>
   );
