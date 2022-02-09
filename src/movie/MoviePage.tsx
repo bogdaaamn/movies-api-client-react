@@ -42,16 +42,14 @@ function MoviePage() {
 
   return (
     <div>
-      <div className="flex flex-col h-screen font-light p-5 pt-40 md:pl-20">
+      <div className="flex flex-col h-screen font-light p-5 md:pt-40 md:pl-20">
         <div className="md:w-[38rem] flex-grow w-full">
           {loading && <p className="text-xl">Loading...</p>}
           {error && <p className="text-xl">Oops! There was an error :(</p>}
           {data && <MovieData movie={data} />}
         </div>
         {(data?.trailer && (
-          <p className="text-2xl md:text-xl">
-            ↓ Scroll down to watch the trailer ↓
-          </p>
+          <p className="text-2xl md:text-xl">↓ Scroll down for the trailer ↓</p>
         )) ||
           (data && (
             <p className="text-2xl md:text-xl">
