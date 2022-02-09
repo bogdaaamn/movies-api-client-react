@@ -49,13 +49,9 @@ function MoviePage() {
           {data && <MovieData movie={data} />}
         </div>
         {(data?.trailer && (
-          <div className="flex gap-2">
-            <p className="animate-bounce">▼</p>
-            <p className="text-2xl md:text-xl">
-              Scroll down to watch the trailer
-            </p>
-            <p className="animate-bounce">▼</p>
-          </div>
+          <p className="text-2xl md:text-xl">
+            ↓ Scroll down to watch the trailer ↓
+          </p>
         )) ||
           (data && (
             <p className="text-2xl md:text-xl">
