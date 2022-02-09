@@ -2,6 +2,9 @@
 
 Search movies and watch their trailer. Bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Written with [TypeScript](https://github.com/microsoft/TypeScript). Based on [Movies API Nestjs](https://github.com/BogDAAAMN/movies-api-nestjs).
 
+![Cover image for Movie Search App](https://user-images.githubusercontent.com/22895284/153308445-35e4b2a3-85cb-43d8-8592-06f1b2b422c0.png)
+
+
 ## Structure
 
 The project is divided in the following routes:
