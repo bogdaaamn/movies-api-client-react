@@ -12,7 +12,7 @@ function SearchBar(props: { query: string | null; className?: string }) {
   return (
     <div className={props.className}>
       <input
-        className="input input-lg w-full input-primary font-bold uppercase"
+        className="w-full font-bold uppercase text-4xl md:text-5xl border-b-4 border-gray-400 focus:border-black outline-none"
         value={searchQuery}
         onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
           setSearchQuery(e.target.value);

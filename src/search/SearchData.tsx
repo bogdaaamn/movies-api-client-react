@@ -18,12 +18,17 @@ type SearchResultType = {
 
 function SearchData(props: { searchResult: SearchResultType }) {
   return (
-    <div className="grid grid-cols-5 gap-5">
+    <div className="flex flex-col gap-10">
       {props.searchResult.results.map((result) => {
         return (
           <div key={result.id}>
             <a href={`/movie/${result.id}`}>
-              <SearchMovieCard />
+              <SearchMovieCard
+                title={result.title}
+                posterPath={result.poster_path}
+                votes={result.vote_average}
+                date={result.release_date}
+              />
             </a>
           </div>
         );

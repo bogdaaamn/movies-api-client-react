@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import SearchData from './SearchData';
+import SearchRecco from './SearchRecco';
 
 type SearchResultType = {
   page: number;
@@ -56,11 +57,19 @@ function SearchPage() {
   }, [pageParam, queryParam]);
 
   return (
-    <div className="flex justify-center font-light my-3 mx-3 md:my-16 md:mx-20">
-      <div className="w-full">
-        {<SearchBar className="mb-3" query={queryParam} />}
-        {loading && <p>Loading...</p>}
-        {error && <p>Oops</p>}
+    <div className="flex font-light p-5 md:pt-16 md:pl-20">
+      <div className="w-[38rem]">
+        {<SearchBar className="mb-12" query={queryParam} />}
+        {loading && <p className="text-2xl">Loading...</p>}
+        {error && !(error.message === 'Unprocessable Entity') && (
+          <p className="text-2xl">Oops! There was an error :(</p>
+        )}
+        {error && error.message === 'Unprocessable Entity' && <SearchRecco />}
+        {data && data.total_results === 0 && (
+          <p className="text-2xl">
+            There are no results matching this query :(
+          </p>
+        )}
         {data && <SearchData searchResult={data} />}
       </div>
     </div>
