@@ -23,7 +23,8 @@ The project is divided in the following routes:
 ### Install
 
 ```bash
-$ git clone https://github.com/BogDAAAMN/movies-api-client-react
+$ git clone https://github.com/BogDAAAMN/movies-api-client-react/
+$ cd movies-api-client-react
 $ npm install
 ```
 
