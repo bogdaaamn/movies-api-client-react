@@ -62,7 +62,7 @@ function MovieData(props: { movie: MovieType }) {
       )}
 
       {props.movie.runtime && props.movie.release_date && (
-        <p className="text-2xl md:text-xl flex items-center gap-1 mb-4">
+        <p className="text-2xl text-gray-600 md:text-xl flex items-center gap-1 mb-4">
           <ClockIcon />
           <span>{props.movie.runtime} min</span>
           <CalendarIcon />
